@@ -1,0 +1,18 @@
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        l=0
+        r=len(matrix[0])*len(matrix)-1
+        while l<=r:
+            m=l+(r-l)//2
+            row=m//len(matrix[0])
+            col=m%len(matrix[0])
+            # print(m)
+            # print(row,col)
+            # print(l,r)
+            if target>matrix[row][col]:
+                l=m+1
+            elif target<matrix[row][col]:
+                r=m-1
+            else:
+                return True
+        return False
